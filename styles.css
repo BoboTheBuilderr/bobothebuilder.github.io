@@ -36,6 +36,12 @@ nav a:hover {
     background-color: #555;
 }
 
+nav a.active {
+    background-color: #555;
+    color: #fff;
+}
+
+
 /* Basic styling for the main content */
 main {
     padding: 2em;
