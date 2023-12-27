@@ -7,9 +7,7 @@ body, h1, h2, h3, p, ul, li {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-}
-html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Adding scroll-behavior to the body */
 }
 
 /* Basic styling for the navigation bar */
@@ -41,7 +39,6 @@ nav a.active {
     color: #fff;
 }
 
-
 /* Basic styling for the main content */
 main {
     padding: 2em;
@@ -61,8 +58,6 @@ h1, h2, h3 {
     background-color: #f9f9f9;
     padding: 2em 0;
 }
-
-/* Add more styles as needed for other sections or components */
 
 /* Styling for the image carousel */
 .image-carousel {
@@ -129,6 +124,20 @@ footer a:hover {
 
 /* Media queries for responsive design */
 
+@media only screen and (max-width: 1024px) {
+    /* Adjust styles for larger screens */
+
+    main {
+        padding: 1em;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    /* Add more responsive styles as needed */
+}
+
 @media only screen and (max-width: 768px) {
     /* Adjust styles for tablet viewports */
 
@@ -164,7 +173,3 @@ footer a:hover {
 
     main {
         padding: 0.5em;
-    }
-
-    /* Add more responsive styles as needed */
-}
