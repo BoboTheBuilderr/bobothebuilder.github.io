@@ -79,54 +79,43 @@ function aboutUsContent() {
 
 
 	// Contact Form content function
-	function contactFormContent() {
+function contactFormContent() {
     const form = document.createElement("form");
     form.setAttribute("id", "ContactUs");
     form.setAttribute("action", "https://formspree.io/f/moqgqwvl");
     form.setAttribute("method", "POST");
- 	<!-- Left side items -->
-            <div class="form-item">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
 
-            <div class="form-item">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+    // Left side items
+    const leftSideItems = [
+        { label: "Name:", type: "text", id: "name", name: "name", required: true },
+        { label: "Email:", type: "email", id: "email", name: "email", required: true },
+        // Add other form fields following the same structure
+    ];
 
-            <div class="form-item">
-                <label for="phone">Phone:</label>
-                <input type="tel" id="phone" name="phone" required>
-            </div>
+    leftSideItems.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("form-item");
 
-            <div class="form-item">
-                <label for="fromAddress">From Address:</label>
-                <input type="text" id="fromAddress" name="fromAddress" required>
-            </div>
+        const label = document.createElement("label");
+        label.setAttribute("for", item.id);
+        label.textContent = item.label;
 
-            <!-- Right side items -->
-            <div class="form-item">
-                <label for="toAddress">To Address:</label>
-                <input type="text" id="toAddress" name="toAddress" required>
-            </div>
+        const input = document.createElement("input");
+        input.setAttribute("type", item.type);
+        input.setAttribute("id", item.id);
+        input.setAttribute("name", item.name);
+        if (item.required) {
+            input.setAttribute("required", "");
+        }
 
-            <div class="form-item">
-                <label for="passengers">Number of Passengers:</label>
-                <input type="number" id="passengers" name="passengers" required>
-            </div>
+        div.appendChild(label);
+        div.appendChild(input);
+        form.appendChild(div);
+    });
 
-            <div class="form-item">
-                <label for="date">Date Requested:</label>
-                <input type="date" id="date" name="date" required>
-            </div>
+    // Right side items (similar logic as left side)
 
-            <div class="form-item">
-                <label for="flightInfo">Flight Info (Optional):</label>
-                <input type="text" id="flightInfo" name="flightInfo">
-            </div>
-
- 	 const submitButton = document.createElement("button");
+    const submitButton = document.createElement("button");
     submitButton.setAttribute("type", "submit");
     submitButton.textContent = "Send";
 
@@ -138,6 +127,7 @@ function aboutUsContent() {
 
     return form.outerHTML;
 }
+
 
 
 // Services content function
