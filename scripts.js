@@ -79,15 +79,6 @@ function aboutUsContent() {
 
 
 
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
 
         <form id="contactForm" class="contact-form-grid">
 	<form action="https://formspree.io/f/moqgqwvl" method="POST">           
@@ -134,8 +125,8 @@ function aboutUsContent() {
             </div>
 
  	 <button type="submit">Send</button>
-    <span>Send</span>
-  </button>
+   
+
 </form>
     `;
 }
