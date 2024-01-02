@@ -80,7 +80,7 @@ function aboutUsContent() {
 
 
 
-        <form id="contactForm" class="contact-form-grid">
+        <form id="ContactUs" class="contact-form-grid">
 	<form action="https://formspree.io/f/moqgqwvl" method="POST">           
  <!-- Left side items -->
             <div class="form-item">
@@ -125,7 +125,7 @@ function aboutUsContent() {
             </div>
 
  	 <button type="submit">Send</button>
-   
+   	<p id="my-form-status"></p>
 
 </form>
     `;
