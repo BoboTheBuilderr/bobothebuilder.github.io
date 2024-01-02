@@ -74,10 +74,24 @@ function aboutUsContent() {
         <h2>Contact Us</h2>
 	
         <h4>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</h4>
-	
+
+
+
+
+
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+
         <form id="contactForm" class="contact-form-grid">
-	<form action="https://send.pageclip.co/vTso3qXSDukFgATzAZ0gl7xLts0otkiL/ContactUs" class="pageclip-form" method="post">
-            <!-- Left side items -->
+	<form action="https://formspree.io/f/moqgqwvl" method="POST">           
+ <!-- Left side items -->
             <div class="form-item">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -119,7 +133,7 @@ function aboutUsContent() {
                 <input type="text" id="flightInfo" name="flightInfo">
             </div>
 
-            <button type="submit" class="pageclip-form__submit">
+ 	 <button type="submit">Send</button>
     <span>Send</span>
   </button>
 </form>
@@ -180,6 +194,6 @@ function handleContactFormSubmission(form) {
     // Implement your logic for handling the form submission here
     // You can access form data using form.elements, e.g., form.elements.name.value
     // Add your custom logic, such as sending data to a server or displaying a confirmation message
-    alert('Form submitted successfully!');
+    //alert('Form submitted successfully!');
     form.reset();
 }
