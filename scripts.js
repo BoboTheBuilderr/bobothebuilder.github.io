@@ -203,3 +203,19 @@ function handleContactFormSubmission(form) {
     });
 }
 
+// Smooth scroll for anchor links
+document.addEventListener('click', function (event) {
+    if (event.target.tagName === 'A' && event.target.getAttribute('href').startsWith('#')) {
+        event.preventDefault();
+
+        const targetId = event.target.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+});
