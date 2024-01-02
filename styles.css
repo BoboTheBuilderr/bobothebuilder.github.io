@@ -57,14 +57,19 @@ h1 {
     color: #333;
 }
 
-h2, h3 {
+h2 {
 	color:#333
 	justify-content: center;
         text-align: center;
-	padding: 4em 1em;
+	padding: 2.5em 1em;
     	border-radius: 5px;
 }
-
+h4 {
+	color:#333;
+	text-align: center;
+	padding: 0.1em 1em;
+    	border-radius: 5px;
+}
 
 /* Styling for the image carousel */
 .image-carousel {
@@ -107,7 +112,7 @@ input, textarea {
 }
 
 button {
-    grid-column: span 1; /* Button spans all 4 columns */
+    grid-column: span 4; /* Button spans all 4 columns */
     background-color: #333;
     color: #fff;
     padding: 0.5em 1em;
