@@ -53,6 +53,71 @@ function aboutUsContent() {
                 <p>Make your prom night truly magical with our exceptional limo, black car, and party bus services, ensuring a stylish and punctual arrival that sets the stage for an unforgettable evening of celebration.</p>
             </div>
         </div>
+        <!-- Gallery Section Content -->
+        <h2>Gallery</h2>
+        <p>View our selection of vehicles for your next trip which include: Cadillac XTS, GMC Yukon, Cadillac Escalade, Mercedes S550, Party Bus, Black Limousine</p>
+        <div class="image-carousel">
+            <div class="carousel-item"><img src="placeholder1.jpg" alt="Placeholder 1"></div>
+            <div class="carousel-item"><img src="placeholder2.jpg" alt="Placeholder 2"></div>
+            <div class="carousel-item"><img src="placeholder3.jpg" alt="Placeholder 3"></div>
+        </div>
+
+        <!-- Reviews Section Content -->
+        <h2>Hear From Our Customers</h2>
+        <div class="review">
+            <h3>Excellent Limo Service</h3>
+            <p>Chicago Luxury Limo Service exceeded my expectations. The chauffeur was professional, the vehicle was pristine, and the overall experience was fantastic. I highly recommend their services!</p>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+        </div>
+
+        <!-- Contact Form Section Content -->
+        <h2>Contact Us</h2>
+        <p>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</p>
+        <form id="contactForm" class="contact-form-grid">
+            <!-- Left side items -->
+            <div class="form-item">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+
+            <div class="form-item">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-item">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-item">
+                <label for="fromAddress">From Address:</label>
+                <input type="text" id="fromAddress" name="fromAddress" required>
+            </div>
+
+            <!-- Right side items -->
+            <div class="form-item">
+                <label for="toAddress">To Address:</label>
+                <input type="text" id="toAddress" name="toAddress" required>
+            </div>
+
+            <div class="form-item">
+                <label for="passengers">Number of Passengers:</label>
+                <input type="number" id="passengers" name="passengers" required>
+            </div>
+
+            <div class="form-item">
+                <label for="date">Date Requested:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-item">
+                <label for="flightInfo">Flight Info (Optional):</label>
+                <input type="text" id="flightInfo" name="flightInfo">
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
     `;
 }
 
@@ -72,8 +137,8 @@ function servicesContent() {
     `;
 }
 
-// Render content based on the hash in the URL
-function renderContent() {
+// Load content based on the hash in the URL
+function loadContent() {
     const spaContainer = getSpaContainer();
     const hash = window.location.hash;
 
@@ -84,6 +149,9 @@ function renderContent() {
         case '#services':
             spaContainer.innerHTML = servicesContent();
             break;
+        case '#contactFormSection':
+            spaContainer.innerHTML = contactFormContent();
+            break;
         default:
             spaContainer.innerHTML = aboutUsContent();
             break;
@@ -91,5 +159,22 @@ function renderContent() {
 }
 
 // Initial load and listen for changes
-window.addEventListener('hashchange', renderContent);
-window.addEventListener('load', renderContent);
+window.addEventListener('hashchange', loadContent);
+window.addEventListener('load', loadContent);
+
+// Add event listener for the contact form submission
+document.addEventListener('submit', function (event) {
+    if (event.target.id === 'contactForm') {
+        event.preventDefault();
+        handleContactFormSubmission(event.target);
+    }
+});
+
+// Function to handle contact form submission
+function handleContactFormSubmission(form) {
+    // Implement your logic for handling the form submission here
+    // You can access form data using form.elements, e.g., form.elements.name.value
+    // Add your custom logic, such as sending data to a server or displaying a confirmation message
+    alert('Form submitted successfully!');
+    form.reset();
+}
