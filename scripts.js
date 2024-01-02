@@ -23,23 +23,7 @@ function loadContent() {
                 <p><strong>Prom:</strong> Make your prom night truly magical with our exceptional limo, black car, and party bus services, ensuring a stylish and punctual arrival that sets the stage for an unforgettable evening of celebration.</p>
             `;
             break;
-        case '#services':
-            spaContainer.innerHTML = `
-                <!-- Services Section Content -->
-                <h2>Services</h2>
-                <p>Airport Elevate your airport experience with our reliable and professional chauffeurs. Find your sedan, suv, or sprinter waiting as you walk out of the terminal.</p>
-
-                <p>Corporate/Private Event Seamless punctuality and refined luxury converge as we enhance corporate events with our distinguished Executive or Limo Sprinter or SUV.</p>
-
-                <p>Concert Amplify your concert experience with our dynamic Limo, black car, and party bus services, delivering a blend of excitement and punctuality for unforgettable arrivals and pick ups.</p>
-
-                <p>Charter Unveil limitless possibilities through our exclusive charter services where a professional chauffeur takes care of the driving for the day (minimum of 3 hours).</p>
-
-                <p>Sports Event Score big with our premier Limo, black car, and party bus services tailored for sports events, ensuring a winning combination of timely arrivals and unmatched luxury, making your game day experience extraordinary.</p>
-
-                <p>Prom Make your prom night truly magical with our exceptional limo, black car, and party bus services, ensuring a stylish and punctual arrival that sets the stage for an unforgettable evening of celebration.</p>
-            `;
-            break;
+        
         default:
             // Default to home page
             spaContainer.innerHTML = `
