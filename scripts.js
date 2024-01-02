@@ -61,7 +61,7 @@ function aboutUsContent() {
             <div class="carousel-item"><img src="placeholder1.jpg" alt="Placeholder 1"></div>
             <div class="carousel-item"><img src="placeholder2.jpg" alt="Placeholder 2"></div>
             <div class="carousel-item"><img src="placeholder3.jpg" alt="Placeholder 3"></div>
-        </div>
+    </div>
 
         <!-- Reviews Section Content -->
         <h2>Hear From Our Customers</h2>
