@@ -80,10 +80,10 @@ function aboutUsContent() {
 
 
 	// Contact Form content function
-function contactFormContent() {
-    return `
+	function contactFormContent() {
+   
 	<form action="https://formspree.io/f/moqgqwvl" method="POST">           
- <!-- Left side items -->
+ 	<!-- Left side items -->
             <div class="form-item">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -127,10 +127,11 @@ function contactFormContent() {
 
  	 <button type="submit">Send</button>
    	<p id="my-form-status"></p>
-
-</form>
+	</form>
     `;
 }
+
+
 
 // Services content function
 function servicesContent() {
