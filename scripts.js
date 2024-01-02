@@ -54,6 +54,7 @@ function aboutUsContent() {
             </div>
         </div>
         <!-- Gallery Section Content -->
+    <div id="Gallery">
         <h2>Gallery</h2>
         <p>View our selection of vehicles for your next trip which include: Cadillac XTS, GMC Yukon, Cadillac Escalade, Mercedes S550, Party Bus, Black Limousine</p>
         <div class="image-carousel">
