@@ -203,7 +203,6 @@ function handleContactFormSubmission(form) {
         alert('Oops! There was a problem submitting your form');
     });
 }
-
 // Smooth scroll for anchor links
 document.addEventListener('click', function (event) {
     if (event.target.tagName === 'A' && event.target.getAttribute('href').startsWith('#')) {
