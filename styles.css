@@ -7,7 +7,7 @@ body, h1, h2, h3, p, ul, li {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    scroll-behavior: smooth; /* Adding scroll-behavior to the body */
+    scroll-behavior: smooth;
 }
 
 /* Basic styling for the navigation bar */
@@ -53,7 +53,7 @@ h1, h2, h3 {
     color: #333;
 }
 
-/* Styling for the about us page */
+/* Styling for the about us section */
 #aboutUsSection {
     background-color: #f9f9f9;
     padding: 2em 0;
@@ -105,6 +105,29 @@ button:hover {
     background-color: #555;
 }
 
+/* Styling for the services section */
+.services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.service {
+    flex-basis: calc(33.33% - 20px); /* Adjust as needed based on your design */
+    margin-bottom: 20px; /* Add margin between items */
+}
+
+/* Additional styling for responsiveness */
+@media only screen and (max-width: 768px) {
+    .services-grid {
+        flex-direction: column;
+    }
+
+    .service {
+        flex-basis: 100%;
+    }
+}
+
 footer {
     background-color: #333;
     color: #fff;
@@ -121,55 +144,3 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
-
-/* Media queries for responsive design */
-
-@media only screen and (max-width: 1024px) {
-    /* Adjust styles for larger screens */
-
-    main {
-        padding: 1em;
-    }
-
-    .container {
-        max-width: 100%;
-    }
-
-    /* Add more responsive styles as needed */
-}
-
-@media only screen and (max-width: 768px) {
-    /* Adjust styles for tablet viewports */
-
-    nav {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin-bottom: 0.5em;
-    }
-
-    main {
-        padding: 1em;
-    }
-
-    .container {
-        max-width: 100%;
-    }
-
-    /* Add more responsive styles as needed */
-}
-
-@media only screen and (max-width: 480px) {
-    /* Adjust styles for mobile viewports */
-
-    header {
-        padding: 0.5em;
-    }
-
-    nav a {
-        padding: 0.3em 0.6em;
-    }
-
-    main {
-        padding: 0.5em;
