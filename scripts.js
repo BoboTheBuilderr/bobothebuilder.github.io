@@ -79,8 +79,12 @@ function aboutUsContent() {
 
 
 
+	// Contact Form content function
+function contactFormContent() {
+    return `
+       
 
-        <form id="ContactUs" class="contact-form-grid">
+
 	<form action="https://formspree.io/f/moqgqwvl" method="POST">           
  <!-- Left side items -->
             <div class="form-item">
@@ -167,24 +171,35 @@ function loadContent() {
             break;
     }
 }
-
-// Initial load and listen for changes
-window.addEventListener('hashchange', loadContent);
-window.addEventListener('load', loadContent);
-
-// Add event listener for the contact form submission
-document.addEventListener('submit', function (event) {
-    if (event.target.id === 'contactForm') {
-        event.preventDefault();
-        handleContactFormSubmission(event.target);
+var form = document.getElementById("Contact-Us");
+async function handleSubmit(event) {
+event.preventDefault();
+var status = document.getElementById("my-form-status");
+var data = new FormData(event.target);
+fetch(event.target.action, {
+  method: form.method,
+  body: data,
+  headers: {
+    'Accept': 'application/json'
+}
+}).then(response => {
+  if (response.ok) {
+    status.innerHTML = "Thanks for your submission!";
+    form.reset()
+  } else {
+    response.json().then(data => {
+    if (Object.hasOwn(data, 'errors')) {
+      status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+    } else {
+      status.innerHTML = "Oops! There was a problem submitting your form"
     }
+  })
+}
+}).catch(error => {
+  status.innerHTML = "Oops! There was a problem submitting your form"
 });
-
+}
+form.addEventListener("submit", handleSubmit)
 // Function to handle contact form submission
-function handleContactFormSubmission(form) {
-    // Implement your logic for handling the form submission here
-    // You can access form data using form.elements, e.g., form.elements.name.value
-    // Add your custom logic, such as sending data to a server or displaying a confirmation message
-    //alert('Form submitted successfully!');
-    form.reset();
+
 }
