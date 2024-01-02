@@ -22,6 +22,37 @@ function aboutUsContent() {
 
         <h3>Why Choose Us?</h3>
         <p>Choosing Chicago Luxury Limo Service means choosing reliability, sophistication, and unmatched service. We take pride in our well-maintained fleet, attention to detail, and commitment to making every ride a memorable experience. Trust us to elevate your transportation needs to the next level.</p>
+
+        <h2>Services</h2>
+        <div class="services-grid">
+            <!-- Left side items -->
+            <div class="service">
+                <h3>Airport</h3>
+                <p>Elevate your airport experience with our reliable and professional chauffeurs. Find your sedan, SUV, or sprinter waiting as you walk out of the terminal.</p>
+            </div>
+            <div class="service">
+                <h3>Corporate/Private Event</h3>
+                <p>Seamless punctuality and refined luxury converge as we enhance corporate events with our distinguished Executive or Limo Sprinter or SUV.</p>
+            </div>
+            <div class="service">
+                <h3>Concert</h3>
+                <p>Amplify your concert experience with our dynamic Limo, black car, and party bus services, delivering a blend of excitement and punctuality for unforgettable arrivals and pick ups.</p>
+            </div>
+
+            <!-- Right side items -->
+            <div class="service">
+                <h3>Charter</h3>
+                <p>Unveil limitless possibilities through our exclusive charter services where a professional chauffeur takes care of the driving for the day (minimum of 3 hours).</p>
+            </div>
+            <div class="service">
+                <h3>Sports Event</h3>
+                <p>Score big with our premier Limo, black car, and party bus services tailored for sports events, ensuring a winning combination of timely arrivals and unmatched luxury, making your game day experience extraordinary.</p>
+            </div>
+            <div class="service">
+                <h3>Prom</h3>
+                <p>Make your prom night truly magical with our exceptional limo, black car, and party bus services, ensuring a stylish and punctual arrival that sets the stage for an unforgettable evening of celebration.</p>
+            </div>
+        </div>
     `;
 }
 
@@ -41,42 +72,24 @@ function servicesContent() {
     `;
 }
 
-// Contact Form content function
-function contactFormContent() {
-    return `
-        <h2>Contact Us</h2>
-        <p>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</p>
-        <form id="contactForm">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
+// Render content based on the hash in the URL
+function renderContent() {
+    const spaContainer = getSpaContainer();
+    const hash = window.location.hash;
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
-        </form>
-    `;
+    switch (hash) {
+        case '#home':
+            spaContainer.innerHTML = aboutUsContent();
+            break;
+        case '#services':
+            spaContainer.innerHTML = servicesContent();
+            break;
+        default:
+            spaContainer.innerHTML = aboutUsContent();
+            break;
+    }
 }
 
-// Add an event listener for the contact form submission (assuming you have a submit handler function)
-document.getElementById("contactForm").addEventListener("submit", handleContactFormSubmit);
-
-// Example submit handler function (replace this with your actual submission logic)
-function handleContactFormSubmit(event) {
-    event.preventDefault();
-
-    // Extract form data and handle the submission (e.g., send it to a server)
-    const formData = new FormData(event.target);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-
-    // Example: Log form data to the console
-    console.log("Form Data:", { name, email, message });
-
-    // TODO: Add your actual form submission logic here
-    // e.g., send the form data to a server using fetch or another method
-}
+// Initial load and listen for changes
+window.addEventListener('hashchange', renderContent);
+window.addEventListener('load', renderContent);
