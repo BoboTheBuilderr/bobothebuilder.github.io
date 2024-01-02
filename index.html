@@ -3,35 +3,31 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chicago Luxury Limo Service</title>
+    <!-- Add your CSS stylesheets or links here -->
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>Chicago Luxury Limo Service</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-        </nav>
-    </header>
+    <!-- Main SPA container -->
+    <div id="spaContainer"></div>
 
-    <main id="spaContainer">
-        <!-- Content loaded dynamically by scripts.js -->
-    </main>
+    <!-- Include your JavaScript file -->
+    <script src="your-script.js"></script>
 
-    <footer>
-        <div>
-            <p>&copy; 2023 Chicago Luxury Limo Service. All rights reserved.</p>
-        </div>
-        <div>
-            <a href="#home">Home</a>
-            <a href="#services">Services</a>
-        </div>
-    </footer>
+    <script>
+        // Assuming you have a function to render the content dynamically
+        function renderContent(contentFunction) {
+            const spaContainer = getSpaContainer();
+            spaContainer.innerHTML = contentFunction();
+        }
+
+        // Initial load - render the About Us content
+        renderContent(aboutUsContent);
+    </script>
+
+    <!-- Optionally, include your additional scripts here -->
 </body>
 
 </html>
