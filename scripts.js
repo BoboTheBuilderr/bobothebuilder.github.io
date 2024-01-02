@@ -5,7 +5,7 @@ const spaContainerId = 'spaContainer';
 function getSpaContainer() {
     const spaContainer = document.getElementById(spaContainerId);
     if (!spaContainer) {
-        throw new Error(`Element with ID ${spaContainerId} not found.`); 
+        throw new Error(`Element with ID ${spaContainerId} not found.`);
     }
     return spaContainer;
 }
@@ -72,8 +72,11 @@ function aboutUsContent() {
 
         <!-- Contact Form Section Content -->
         <h2>Contact Us</h2>
-        <p>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</p>
+	
+        <h4>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</h4>
+	
         <form id="contactForm" class="contact-form-grid">
+	<form action="https://send.pageclip.co/vTso3qXSDukFgATzAZ0gl7xLts0otkiL/ContactUs" class="pageclip-form" method="post">
             <!-- Left side items -->
             <div class="form-item">
                 <label for="name">Name:</label>
@@ -116,8 +119,10 @@ function aboutUsContent() {
                 <input type="text" id="flightInfo" name="flightInfo">
             </div>
 
-            <button type="submit">Submit</button>
-        </form>
+            <button type="submit" class="pageclip-form__submit">
+    <span>Send</span>
+  </button>
+</form>
     `;
 }
 
@@ -156,7 +161,6 @@ function loadContent() {
             spaContainer.innerHTML = aboutUsContent();
             break;
     }
-    updateContent(spaContainer, content);
 }
 
 // Initial load and listen for changes
@@ -171,47 +175,11 @@ document.addEventListener('submit', function (event) {
     }
 });
 
+// Function to handle contact form submission
 function handleContactFormSubmission(form) {
-    const formData = new FormData(form);
-
-    // Convert FormData to a plain JavaScript object
-    const formObject = {};
-    formData.forEach((value, key) => {
-        formObject[key] = value;
-    });
-
-    // Example: Log form data to the console
-    console.log('Form Data:', formObject);
-
-    // Send form data to Formspree using Fetch API
-    fetch('https://formspree.io/ameerfarhan20@gmail.com', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formObject),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to submit form');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Handle success response from Formspree
-        console.log('Formspree Response:', data);
-
-        // Display a confirmation message to the user
-        alert('Form submitted successfully!');
-        form.reset();
-    })
-    .catch(error => {
-        // Handle error scenarios
-        console.error('Error submitting form:', error);
-
-        // Display an error message to the user if needed
-        alert('Failed to submit form. Please try again.');
-    });
-}
-
+    // Implement your logic for handling the form submission here
+    // You can access form data using form.elements, e.g., form.elements.name.value
+    // Add your custom logic, such as sending data to a server or displaying a confirmation message
+    alert('Form submitted successfully!');
+    form.reset();
 }
