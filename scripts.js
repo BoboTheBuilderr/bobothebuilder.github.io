@@ -73,7 +73,7 @@ function aboutUsContent() {
 
         <!-- Contact Form Section Content -->
         <h2>Contact Us</h2>
-        <p>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</p>
+        <h3>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</h3>
         <div id="contact-Us">
         <form id="contact-Us" class="contact-form-grid">
             <!-- Left side items -->
