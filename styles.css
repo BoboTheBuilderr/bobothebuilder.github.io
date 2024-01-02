@@ -61,6 +61,8 @@ h2, h3 {
 	color:#333
 	justify-content: center;
         text-align: center;
+	padding: 4em 1em;
+    	border-radius: 5px;
 }
 
 
