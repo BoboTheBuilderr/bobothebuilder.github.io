@@ -172,9 +172,34 @@ document.addEventListener('submit', function (event) {
 
 // Function to handle contact form submission
 function handleContactFormSubmission(form) {
-    // Implement your logic for handling the form submission here
-    // You can access form data using form.elements, e.g., form.elements.name.value
-    // Add your custom logic, such as sending data to a server or displaying a confirmation message
-    alert('Form submitted successfully!');
-    form.reset();
+    // Collect form data
+    var formData = new FormData(form);
+
+    // Make a POST request to Formspree endpoint
+    fetch("https://formspree.io/f/moqgqwvl", {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            // Handle successful submission
+            alert('Form submitted successfully!');
+            form.reset();
+        } else {
+            // Handle error response
+            response.json().then(data => {
+                if (Object.hasOwnProperty(data, 'errors')) {
+                    alert(data["errors"].map(error => error["message"]).join(", "));
+                } else {
+                    alert('Oops! There was a problem submitting your form');
+                }
+            });
+        }
+    }).catch(error => {
+        // Handle network errors
+        alert('Oops! There was a problem submitting your form');
+    });
 }
+
