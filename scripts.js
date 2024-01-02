@@ -156,6 +156,7 @@ function loadContent() {
             spaContainer.innerHTML = aboutUsContent();
             break;
     }
+    updateContent(spaContainer, content);
 }
 
 // Initial load and listen for changes
@@ -170,11 +171,47 @@ document.addEventListener('submit', function (event) {
     }
 });
 
-// Function to handle contact form submission
 function handleContactFormSubmission(form) {
-    // Implement your logic for handling the form submission here
-    // You can access form data using form.elements, e.g., form.elements.name.value
-    // Add your custom logic, such as sending data to a server or displaying a confirmation message
-    alert('Form submitted successfully!');
-    form.reset();
+    const formData = new FormData(form);
+
+    // Convert FormData to a plain JavaScript object
+    const formObject = {};
+    formData.forEach((value, key) => {
+        formObject[key] = value;
+    });
+
+    // Example: Log form data to the console
+    console.log('Form Data:', formObject);
+
+    // Send form data to Formspree using Fetch API
+    fetch('https://formspree.io/ameerfarhan20@gmail.com', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formObject),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to submit form');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Handle success response from Formspree
+        console.log('Formspree Response:', data);
+
+        // Display a confirmation message to the user
+        alert('Form submitted successfully!');
+        form.reset();
+    })
+    .catch(error => {
+        // Handle error scenarios
+        console.error('Error submitting form:', error);
+
+        // Display an error message to the user if needed
+        alert('Failed to submit form. Please try again.');
+    });
+}
+
 }
