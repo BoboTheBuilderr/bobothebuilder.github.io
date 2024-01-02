@@ -17,10 +17,10 @@ function aboutUsContent() {
         <h2>About Us</h2>
         <p>Welcome to Chicago Luxury Limo Service, where we redefine luxury transportation. With a commitment to excellence and customer satisfaction, we have become a leading provider of black car, limousine, and party bus services in the Chicago area.</p>
         
-        <h3>Our Mission</h3>
+        <h2>Our Mission</h2>
         <p>At Chicago Luxury Limo Service, our mission is to deliver unparalleled luxury and comfort to our clients. Whether you're attending a special event, corporate meeting, or just need reliable transportation, our professional and experienced chauffeurs are dedicated to ensuring a smooth and enjoyable journey.</p>
 
-        <h3>Why Choose Us?</h3>
+        <h2>Why Choose Us?</h2>
         <p>Choosing Chicago Luxury Limo Service means choosing reliability, sophistication, and unmatched service. We take pride in our well-maintained fleet, attention to detail, and commitment to making every ride a memorable experience. Trust us to elevate your transportation needs to the next level.</p>
 
         <h2>Services</h2>
