@@ -5,7 +5,7 @@ const spaContainerId = 'spaContainer';
 function getSpaContainer() {
     const spaContainer = document.getElementById(spaContainerId);
     if (!spaContainer) {
-        throw new Error(`Element with ID ${spaContainerId} not found.`);
+        throw new Error(`Element with ID ${spaContainerId} not found.`); 
     }
     return spaContainer;
 }
