@@ -2,8 +2,6 @@
 
 // Constants
 const spaContainerId = 'spaContainer';
-const aboutUsHash = '#home';
-const servicesHash = '#services';
 
 // Get spaContainer element or throw an error if not found
 function getSpaContainer() {
@@ -32,12 +30,7 @@ function aboutUsContent() {
 
         <h3>Additional Paragraph 2</h3>
         <p>Here is another paragraph with more details about our commitment to customer satisfaction and excellence.</p>
-    `;
-}
 
-// Services content function
-function servicesContent() {
-    return `
         <!-- Services Section Content -->
         <h2>Services</h2>
         <p><strong>Airport:</strong> Elevate your airport experience with our reliable and professional chauffeurs. Find your sedan, suv, or sprinter waiting as you walk out of the terminal.</p>
@@ -50,4 +43,15 @@ function servicesContent() {
 
         <p><strong>Sports Event:</strong> Score big with our premier Limo, black car, and party bus services tailored for sports events, ensuring a winning combination of timely arrivals and unmatched luxury, making your game day experience extraordinary.</p>
 
-        <p><strong>Prom:</strong> Make your prom night truly magical with our exceptional limo, black car, and party bus services, ensuring a stylish and punctual arrival th
+        <p><strong>Prom:</strong> Make your prom night truly magical with our exceptional limo, black car, and party bus services, ensuring a stylish and punctual arrival that sets the stage for an unforgettable evening of celebration.</p>
+    `;
+}
+
+// Load content based on the hash in the URL
+function loadContent() {
+    const spaContainer = getSpaContainer();
+    spaContainer.innerHTML = aboutUsContent();
+}
+
+// Initial load and listen for changes
+window.addEventListener('load', loadContent);
