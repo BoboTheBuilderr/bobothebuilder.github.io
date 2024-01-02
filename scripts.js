@@ -156,26 +156,7 @@ function servicesContent() {
     `;
 }
 
-// Load content based on the hash in the URL
-function loadContent() {
-    const spaContainer = spaContainer();
-    const hash = window.location.hash;
 
-    switch (hash) {
-        case '#home':
-            spaContainer.innerHTML = aboutUsContent();
-            break;
-        case '#services':
-            spaContainer.innerHTML = servicesContent();
-            break;
-        case '#contactFormSection':
-            spaContainer.innerHTML = contactFormContent();
-            break;
-        default:
-            spaContainer.innerHTML = aboutUsContent();
-            break;
-    }
-}
 
 // Load content based on the hash in the URL
 function loadContent() {
