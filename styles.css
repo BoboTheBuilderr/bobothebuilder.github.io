@@ -7,7 +7,11 @@ body, h1, h2, h3, p, ul, li {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 /* Basic styling for the navigation bar */
@@ -49,15 +53,16 @@ main {
     margin: 0 auto;
 }
 
-h1, h2, h3 {
+h1 {
     color: #333;
 }
 
-/* Styling for the about us section */
-#aboutUsSection {
-    background-color: #f9f9f9;
-    padding: 2em 0;
+h2, h3 {
+	color:#333
+	justify-content: center;
+        text-align: center;
 }
+
 
 /* Styling for the image carousel */
 .image-carousel {
@@ -76,8 +81,16 @@ h1, h2, h3 {
 
 /* Styling for the contact form */
 form {
-    max-width: 600px;
+    max-width: 800px; /* Increase the max-width to accommodate the grid layout */
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns with equal width */
+    gap: 2.5em; /* Adjust the gap between form items */
+}
+
+/* Style for form items */
+.form-item {
+    grid-column: span 2; /* Each form item spans 2 columns */
 }
 
 label {
@@ -92,6 +105,7 @@ input, textarea {
 }
 
 button {
+    grid-column: span 1; /* Button spans all 4 columns */
     background-color: #333;
     color: #fff;
     padding: 0.5em 1em;
@@ -100,11 +114,6 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
-
-button:hover {
-    background-color: #555;
-}
-
 /* Styling for the services section */
 .services-grid {
     display: flex;
@@ -127,6 +136,9 @@ button:hover {
         flex-basis: 100%;
     }
 }
+button:hover {
+    background-color: #555;
+}
 
 footer {
     background-color: #333;
@@ -143,4 +155,51 @@ footer a {
 
 footer a:hover {
     text-decoration: underline;
+}
+
+/* Media queries for responsive design */
+
+@media only screen and (max-width: 1024px) {
+    /* Adjust styles for larger screens */
+    main {
+        padding: 1em;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    /* Adjust styles for tablet viewports */
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        margin-bottom: 0.5em;
+    }
+
+    main {
+        padding: 1em;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Adjust styles for mobile viewports */
+    header {
+        padding: 0.5em;
+    }
+
+    nav a {
+        padding: 0.3em 0.6em;
+    }
+
+    main {
+        padding: 0.5em;
+    }
 }
