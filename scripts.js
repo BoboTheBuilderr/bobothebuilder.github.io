@@ -22,7 +22,7 @@ function aboutUsContent() {
 
         <h2>Why Choose Us?</h2>
         <p>Choosing Chicago Luxury Limo Service means choosing reliability, sophistication, and unmatched service. We take pride in our well-maintained fleet, attention to detail, and commitment to making every ride a memorable experience. Trust us to elevate your transportation needs to the next level.</p>
-
+         <div id="Services">
         <h2>Services</h2>
         <div class="services-grid">
             <!-- Left side items -->
@@ -74,7 +74,8 @@ function aboutUsContent() {
         <!-- Contact Form Section Content -->
         <h2>Contact Us</h2>
         <p>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</p>
-        <form id="contactForm" class="contact-form-grid">
+        <div id="Contact-Us">
+        <form id="contact-Us" class="contact-form-grid">
             <!-- Left side items -->
             <div class="form-item">
                 <label for="name">Name:</label>
