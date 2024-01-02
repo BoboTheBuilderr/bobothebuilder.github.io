@@ -2,13 +2,14 @@
 const spaContainerId = 'spaContainer';
 
 // Get spaContainer element or throw an error if not found
-function spaContainer() {
+function getSpaContainer() {
     const spaContainer = document.getElementById(spaContainerId);
     if (!spaContainer) {
-        throw new Error(`Element with ID ${spaContainerId} not found.`);
+        throw new Error(`Element with ID ${spaContainerId} not found.`); 
     }
     return spaContainer;
 }
+
 // About Us content function
 function aboutUsContent() {
     return `
@@ -16,10 +17,10 @@ function aboutUsContent() {
         <h2>About Us</h2>
         <p>Welcome to Chicago Luxury Limo Service, where we redefine luxury transportation. With a commitment to excellence and customer satisfaction, we have become a leading provider of black car, limousine, and party bus services in the Chicago area.</p>
         
-        <h2>Our Mission</h2>
+        <h3>Our Mission</h3>
         <p>At Chicago Luxury Limo Service, our mission is to deliver unparalleled luxury and comfort to our clients. Whether you're attending a special event, corporate meeting, or just need reliable transportation, our professional and experienced chauffeurs are dedicated to ensuring a smooth and enjoyable journey.</p>
 
-        <h2>Why Choose Us?</h2>
+        <h3>Why Choose Us?</h3>
         <p>Choosing Chicago Luxury Limo Service means choosing reliability, sophistication, and unmatched service. We take pride in our well-maintained fleet, attention to detail, and commitment to making every ride a memorable experience. Trust us to elevate your transportation needs to the next level.</p>
 
         <h2>Services</h2>
@@ -71,64 +72,54 @@ function aboutUsContent() {
 
         <!-- Contact Form Section Content -->
         <h2>Contact Us</h2>
-	
-        <h4>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</h4>
+        <p>Have a question or want to book our services? Fill out the form below, and we'll get back to you as soon as possible.</p>
+        <form id="contactForm" class="contact-form-grid">
+            <!-- Left side items -->
+            <div class="form-item">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
 
+            <div class="form-item">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
+            <div class="form-item">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
 
+            <div class="form-item">
+                <label for="fromAddress">From Address:</label>
+                <input type="text" id="fromAddress" name="fromAddress" required>
+            </div>
 
+            <!-- Right side items -->
+            <div class="form-item">
+                <label for="toAddress">To Address:</label>
+                <input type="text" id="toAddress" name="toAddress" required>
+            </div>
 
-	// Contact Form content function
-function contactFormContent() {
-    const form = document.createElement("form");
-    form.setAttribute("id", "ContactUs");
-    form.setAttribute("action", "https://formspree.io/f/moqgqwvl");
-    form.setAttribute("method", "POST");
+            <div class="form-item">
+                <label for="passengers">Number of Passengers:</label>
+                <input type="number" id="passengers" name="passengers" required>
+            </div>
 
-    // Left side items
-    const leftSideItems = [
-        { label: "Name:", type: "text", id: "name", name: "name", required: true },
-        { label: "Email:", type: "email", id: "email", name: "email", required: true },
-        // Add other form fields following the same structure
-    ];
+            <div class="form-item">
+                <label for="date">Date Requested:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
 
-    leftSideItems.forEach(item => {
-        const div = document.createElement("div");
-        div.classList.add("form-item");
+            <div class="form-item">
+                <label for="flightInfo">Flight Info (Optional):</label>
+                <input type="text" id="flightInfo" name="flightInfo">
+            </div>
 
-        const label = document.createElement("label");
-        label.setAttribute("for", item.id);
-        label.textContent = item.label;
-
-        const input = document.createElement("input");
-        input.setAttribute("type", item.type);
-        input.setAttribute("id", item.id);
-        input.setAttribute("name", item.name);
-        if (item.required) {
-            input.setAttribute("required", "");
-        }
-
-        div.appendChild(label);
-        div.appendChild(input);
-        form.appendChild(div);
-    });
-
-    // Right side items (similar logic as left side)
-
-    const submitButton = document.createElement("button");
-    submitButton.setAttribute("type", "submit");
-    submitButton.textContent = "Send";
-
-    const statusParagraph = document.createElement("p");
-    statusParagraph.setAttribute("id", "my-form-status");
-
-    form.appendChild(submitButton);
-    form.appendChild(statusParagraph);
-
-    return form.outerHTML;
+            <button type="submit">Submit</button>
+        </form>
+    `;
 }
-
-
 
 // Services content function
 function servicesContent() {
@@ -146,11 +137,9 @@ function servicesContent() {
     `;
 }
 
-
-
 // Load content based on the hash in the URL
 function loadContent() {
-    const spaContainer = spaContainer();
+    const spaContainer = getSpaContainer();
     const hash = window.location.hash;
 
     switch (hash) {
@@ -167,4 +156,25 @@ function loadContent() {
             spaContainer.innerHTML = aboutUsContent();
             break;
     }
+}
+
+// Initial load and listen for changes
+window.addEventListener('hashchange', loadContent);
+window.addEventListener('load', loadContent);
+
+// Add event listener for the contact form submission
+document.addEventListener('submit', function (event) {
+    if (event.target.id === 'contactForm') {
+        event.preventDefault();
+        handleContactFormSubmission(event.target);
+    }
+});
+
+// Function to handle contact form submission
+function handleContactFormSubmission(form) {
+    // Implement your logic for handling the form submission here
+    // You can access form data using form.elements, e.g., form.elements.name.value
+    // Add your custom logic, such as sending data to a server or displaying a confirmation message
+    alert('Form submitted successfully!');
+    form.reset();
 }
