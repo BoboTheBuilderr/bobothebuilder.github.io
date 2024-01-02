@@ -9,7 +9,6 @@ function spaContainer() {
     }
     return spaContainer;
 }
-
 // About Us content function
 function aboutUsContent() {
     return `
@@ -81,8 +80,10 @@ function aboutUsContent() {
 
 	// Contact Form content function
 	function contactFormContent() {
-   
-	<form action="https://formspree.io/f/moqgqwvl" method="POST">           
+    const form = document.createElement("form");
+    form.setAttribute("id", "ContactUs");
+    form.setAttribute("action", "https://formspree.io/f/moqgqwvl");
+    form.setAttribute("method", "POST");
  	<!-- Left side items -->
             <div class="form-item">
                 <label for="name">Name:</label>
@@ -125,12 +126,18 @@ function aboutUsContent() {
                 <input type="text" id="flightInfo" name="flightInfo">
             </div>
 
- 	 <button type="submit">Send</button>
-   	<p id="my-form-status"></p>
-	</form>
-    `;
-}
+ 	 const submitButton = document.createElement("button");
+    submitButton.setAttribute("type", "submit");
+    submitButton.textContent = "Send";
 
+    const statusParagraph = document.createElement("p");
+    statusParagraph.setAttribute("id", "my-form-status");
+
+    form.appendChild(submitButton);
+    form.appendChild(statusParagraph);
+
+    return form.outerHTML;
+}
 
 
 // Services content function
@@ -151,7 +158,7 @@ function servicesContent() {
 
 // Load content based on the hash in the URL
 function loadContent() {
-    const spaContainer = getSpaContainer();
+    const spaContainer = spaContainer();
     const hash = window.location.hash;
 
     switch (hash) {
@@ -169,33 +176,24 @@ function loadContent() {
             break;
     }
 }
-var form = document.getElementById("ContactUs");
-async function handleSubmit(event) {
-    event.preventDefault();
-    var status = document.getElementById("my-form-status");
-    var data = new FormData(event.target);
-    fetch(event.target.action, {
-        method: form.method,
-        body: data,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            status.innerHTML = "Thanks for your submission!";
-            form.reset();
-        } else {
-            response.json().then(data => {
-                if (Object.hasOwnProperty(data, 'errors')) {
-                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                } else {
-                    status.innerHTML = "Oops! There was a problem submitting your form";
-                }
-            });
-        }
-    }).catch(error => {
-        status.innerHTML = "Oops! There was a problem submitting your form";
-    });
-}
-form.addEventListener("submit", handleSubmit);
 
+// Load content based on the hash in the URL
+function loadContent() {
+    const spaContainer = spaContainer();
+    const hash = window.location.hash;
+
+    switch (hash) {
+        case '#home':
+            spaContainer.innerHTML = aboutUsContent();
+            break;
+        case '#services':
+            spaContainer.innerHTML = servicesContent();
+            break;
+        case '#contactFormSection':
+            spaContainer.innerHTML = contactFormContent();
+            break;
+        default:
+            spaContainer.innerHTML = aboutUsContent();
+            break;
+    }
+}
